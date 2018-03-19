@@ -181,12 +181,11 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
                                             <?php
                                             
                                         }
-                                        
                                         //Echos
                                         echo "<br>";
                                         echo $comments['comment']; ?>
 
-                                        <br>
+                                        <br><br>
                                     </p>
                                 
                                 </div>
