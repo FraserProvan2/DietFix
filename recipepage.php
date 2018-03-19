@@ -154,14 +154,15 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
                             <?php
                             
                                 //Query to find comments
-                                $find_comments = $conn->query("SELECT c.*, c.id AS 'commentid', u.username, u.id FROM df_comments c LEFT JOIN df_users u ON u.id = c.userid WHERE recipeid = '$id' ORDER BY 'commentid' DESC");
+                                $find_comments = $conn->query("SELECT c.*, c.id AS 'comment_id', u.username, u.id FROM df_comments c LEFT JOIN df_users u ON u.id = c.userid WHERE c.recipeid = '$id' ORDER BY 'commentid' DESC");
                                 
                                 while ($comments = $find_comments->fetch()) {?>
+                                
                                 <div id="deletecomment-response"> 
                                 </div>       
 
                                 <div class="comment-display">
-                                    <p>
+                                    <p style="display: unset;">
                                         <a style="font-weight: bold;">
                                             <?php echo ucfirst($comments['username']); ?> 
                                         </a>
@@ -169,13 +170,16 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
                                         <?php
 
                                         //If to make delete button appear if its there own comment OR its the users own recipe page
-                                        if ($comments['username'] == $_SESSION['gatekeeper']['username'] OR $row['userid'] == $_SESSION['gatekeeper']['id']){
+                                        if ($comments['username'] == $_SESSION['gatekeeper']['username'] || $row['userid'] == $_SESSION['gatekeeper']['id']){
                         
                                             //Delete button
                                             ?>
-                                            <input type="hidden" id="comment_id" value="<?php echo $comments[commentid]; ?>">
-                                            <input type="button" onclick='deletecomment()' value="Delete" class="btn btn-link button-href"/>
+                                            <form method="POST" action="deletecomment.php?comment_id=<?php echo $comments['comment_id']; ?>" style="display: unset;" >
+                                                <input type="hidden" name="comment_id" value="<?php echo $comments['comment_id']; ?>">
+                                                <input type="submit" value="Delete" class="btn btn-link button-href"/>
+                                            </form>
                                             <?php
+                                            
                                         }
                                         
                                         //Echos

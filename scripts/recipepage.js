@@ -53,28 +53,3 @@ function favourite() {
 function favouriteResponse(e) {
     document.getElementById('favourite-resposne').innerHTML = e.target.responseText;
 }
-
-//Delete comment function - Deletes comment
-function deletecomment() {
-
-    // Create the XMLHttpRequest variable.
-    var xhr2 = new XMLHttpRequest();
-
-    // Gets user input
-    var p = document.getElementById("comment_id").value;
-
-    if (p == false) {
-        return;
-    } else {
-        // Specify the CALLBACK function. 
-        xhr2.addEventListener("load", deleteCommentResponse);
-        xhr2.open('POST', 'deletecomment.php?comment_id=' + p);
-        xhr2.send();
-    }
-}
-
-// Gets response from sign up attempt
-function deleteCommentResponse(e) {
-    document.getElementById('deletecomment-response').innerHTML = e.target.responseText;
-    window.location.reload();
-}
