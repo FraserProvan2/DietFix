@@ -45,46 +45,53 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                     <h4 class="section-title">My Recipes</h4>
 
                         <?php
-                        //Selects all from recipes when username is the same
+                        //Selects all from recipes when username is the same (for error "you have no uploaded meals")
                         $username = $_SESSION['gatekeeper']['username'];
-                        $results = $conn->query("SELECT * from df_recipes WHERE '$username' = username"); 
-                        ?>
+                        $check = $conn->query("SELECT * from df_recipes WHERE '$username' = username"); 
+                        $check_fetched = $check->fetch();
+                        
+                        //Selects all from recipes when username is the same (for list of meals)
+                        $results = $conn->query("SELECT * from df_recipes WHERE '$username' = username");
 
-                        <table class='table table-hover' id='myTable'>
-                            <col>
-                            <thead>
-                                <tr>
-                                    <th scope='col' id='table-heading' width="60%;">Recipe Title</th>
-                                    <th scope='col' id='table-heading' width="20%;"></th>
-                                    <th scope='col' id='table-heading' width="20%;"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        //Checks if they have any uploaded meals yet
+                        if ($check_fetched != true) {
+                            echo "You have no uploaded recipes yet!";
+                        }
+                        else {
+                            ?>
+                            <table class='table table-hover' id='myTable'>
+                                <col>
+                                <thead>
+                                    <tr>
+                                        <th scope='col' id='table-heading' width="60%;">Recipe Title</th>
+                                        <th scope='col' id='table-heading' width="20%;"></th>
+                                        <th scope='col' id='table-heading' width="20%;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
                                 <?php 
                                 //Looped data
                                 while ($row = $results->fetch()) {
                                 $id = $row['id']; //Used for deleting recipes
                                 ?>
-
-                                <tr>
-                                    <td>
-                                        <a href='recipepage.php?id=<?php echo $id; ?>' class='title'>
-                                            <?php echo $row['title']; ?>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href='deleterecipe.php?id=<?php echo $id; ?>' onclick='return deleteRecipe()'>Delete Recipe</a>
-                                    </td>
-                                    <td>
-                                        <a href='updaterecipe.php?id=<?php echo $id; ?>'>Edit Recipe</a>
-                                    </td>
-                                </tr>
-
-                                <?php } //My recipes table end (Outside of loop) ?>
-
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>
+                                            <a href='recipepage.php?id=<?php echo $id; ?>' class='title'>
+                                                <?php echo $row['title']; ?>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href='deleterecipe.php?id=<?php echo $id; ?>' onclick='return deleteRecipe()'>Delete Recipe</a>
+                                        </td>
+                                        <td>
+                                            <a href='updaterecipe.php?id=<?php echo $id; ?>'>Edit Recipe</a>
+                                        </td>
+                                    </tr>
+                                    <?php } //My recipes table end (Outside of loop) ?>
+                                </tbody>
+                            </table>
+                        <?php } //checks if they have any uploaded meals ends ?>
 
                         <!-- My Favourites -->
                         <h4 class="section-title">My Favourites</h4>
@@ -93,10 +100,20 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                             //Gets user ID
                             $userid = $_SESSION['gatekeeper']['id'];
 
-                            //Left Join to select data from df_recipes and df_favourites
+                            //Left Join to select data from df_recipes and df_favourites (For list of favourites)
                             $favourites = $conn->query("SELECT f.*, r.id,r.username, r.title FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.userid = $userid"); 
-                            ?>
 
+                            //Left Join to select data from df_recipes and df_favourites (For error "you dont have any favourites")
+                            $fav_check = $conn->query("SELECT f.*, r.id,r.username, r.title FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.userid = $userid");
+                            $fav_checkfetched = $fav_check->fetch();    
+
+                            //Checks if they have any uploaded recipes yet
+                            if ($fav_checkfetched != true) {
+                                echo "You have no favourites yet!";
+                            }
+                            else {
+                            
+                            ?>
                             <table class='table table-hover' id='myTable'>
                                 <col>
                                 <thead>
@@ -125,11 +142,10 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                                                 <a href='unfavouriterecipe.php?recipeid=<?php echo $id; ?>&amp;userid=<?php echo $userid; ?>' onclick='return unfavouriteRecipe()'>Unfavourite Recipe</a>
                                             </td>
                                         </tr>
-
                                         <?php } //my favourites loop ends ?>
-
                                 </tbody>
                             </table>
+                            <?php } //checks if they have any favourites ends ?>
                 </div>
             </div>
         </div>

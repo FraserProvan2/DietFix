@@ -41,9 +41,9 @@ session_start();
             <form method='get' action='signin.php' class="index_login-form" id="signin-div">
                 <input class="form-control form-control-lg" type="text" placeholder="Username" name="user" />
                 <input class="form-control form-control-lg" type="password" placeholder="Password" name="pass" />
-                <input type="submit" class="btn btn-primary btn-lg" value="login" id="index_button" />
+                <input type="submit" class="btn btn-primary btn-lg index_button" value="login"/>
                 <br>
-                <a id="text-blue" onClick="replaceDiv('signin-div','signup-div')">Not registered?</a>
+                <a class="text-blue" onClick="replaceDiv('signin-div','signup-div')">Not registered?</a>
                 <br>
                 <br>
                 <div id='signin-response'></div>
@@ -56,7 +56,7 @@ session_start();
                         <input class="form-control form-control-lg" type="password" placeholder="Password" id="password" />
                         <input class="form-control form-control-lg" type="password" placeholder="Confirm Password" id="password2" />
                         <input class="form-control form-control-lg" type="email" placeholder="Email Address" id="email" />
-                        <button type="button" class="btn btn-lg" onclick="signup()" id="index_button">create</button>
+                        <button type="button" class="btn btn-lg index_button" onclick="signup()">create</button>
                         <br>
                         <br>
                         <p class="message index_message" onclick="window.location.reload()">
