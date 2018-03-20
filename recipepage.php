@@ -162,7 +162,7 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
                                 </div>       
 
                                 <div class="comment-display">
-                                    <p style="display: unset;">
+                                    
                                         <a style="font-weight: bold;">
                                             <?php echo ucfirst($comments['username']); ?> 
                                         </a>
@@ -186,7 +186,7 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
                                         echo $comments['comment']; ?>
 
                                         <br><br>
-                                    </p>
+                                    
                                 
                                 </div>
                                 <?php } ?>
