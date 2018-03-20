@@ -82,11 +82,12 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                                             </a>
                                         </td>
                                         <td>
-                                            <a href='deleterecipe.php?id=<?php echo $id; ?>' onclick='return deleteRecipe()'>Delete Recipe</a>
-                                        </td>
-                                        <td>
                                             <a href='updaterecipe.php?id=<?php echo $id; ?>'>Edit Recipe</a>
                                         </td>
+                                        <td>
+                                            <a href='deleterecipe.php?id=<?php echo $id; ?>' onclick='return deleteRecipe()' class='text-red'>Delete Recipe</a>
+                                        </td>
+
                                     </tr>
                                     <?php } //My recipes table end (Outside of loop) ?>
                                 </tbody>

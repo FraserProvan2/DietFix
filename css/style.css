@@ -368,10 +368,23 @@ table tr:nth-child(odd) {
     text-decoration: none;
     color:#007bff!important;
 }
+
 .text-blue:hover {
     color: inherit;
     text-decoration: underline!important;
     color:#007bff!important;
+}
+
+.text-red {
+    color: inherit;
+    text-decoration: none;
+    color:#B71C1C!important;
+}
+
+.text-red:hover {
+    color: inherit;
+    text-decoration: underline!important;
+    color:#B71C1C!important;
 }
 
 index_message{
