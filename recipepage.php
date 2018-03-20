@@ -62,12 +62,30 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
 
                     <div class="row">
                         <div class="col-sm">
-                            <?php echo "<img src='$row[image]' class='Image border-secondary' id='recipepage-padding'/>" ?>
+                            <?php echo "<img src='$row[image]' class='Image border-secondary' id='recipepage-padding'/>"; 
+                            
+                            $idrecipe = $row['id'];
+                            $iduser = $_SESSION['gatekeeper']['id'];
+                            $check_favs = $conn->query("SELECT * from df_favourites WHERE $iduser = userid AND $idrecipe = recipeid");
+                            $checked_favs = $check_favs->fetch();
 
+                            if ($checked_favs != false) {
+                                ?>    
+                                <!-- Unfavourite button -->
+                                <input type="hidden" id="unfav_recipeid" value="<?php echo $id; ?>">
+                                <input type="hidden" id="unfav_userid" value="<?php echo $_SESSION['gatekeeper']['id']; ?>">
+                                <button type="button" class="btn" id="Favourite" onclick="unfavouriteRecipe2()" style="margin-top:15px">Unfavourite</button>
+                                <?php
+
+                            }
+                            else {
+                            ?>
                             <!-- Favourite button -->
                             <input type="hidden" id="recipe_id_favourite" value="<?php echo $id; ?>">
                             <input type="hidden" id="userid_favourite" value="<?php echo $_SESSION['gatekeeper']['id']; ?>">
                             <button type="button" class="btn" id="btn" id="Favourite" onclick="favourite()" style="margin-top:15px">Favourite</button>
+                            
+                            <?php } ?>
 
                             <!-- Print button -->
                             <button type="button" class="btn" id="btn" onclick="printRecipe()" style="margin-top:15px">Print</button>
@@ -197,6 +215,24 @@ $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY
         </div>
 
         <?php include 'include/footer.php';?>
+        
+        <script>
+        
+        //Script for unfavouriting recipes (Refreshes afterwards)
+        function unfavouriteRecipe2() {
+        
+        var xhr2 = new XMLHttpRequest();
+        var a = document.getElementById("unfav_recipeid").value;
+        var b = document.getElementById("unfav_userid").value;
+            
+        
+        xhr2.open('POST', 'unfavouriterecipe.php?recipeid=' + a + '&userid=' + b);
+        xhr2.send();
+
+        window.location.reload();
+    
+        }
+        </script>
 
     </body>
 </div>

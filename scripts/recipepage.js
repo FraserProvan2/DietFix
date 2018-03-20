@@ -43,13 +43,8 @@ function favourite() {
     var y = document.getElementById("recipe_id_favourite").value;
     var x = document.getElementById("userid_favourite").value;
 
-    // Specify the CALLBACK function. 
-    xhr2.addEventListener("load", favouriteResponse);
     xhr2.open('POST', 'favourite.php?userid_favourite=' + x + '&recipe_id_favourite=' + y);
     xhr2.send();
-}
 
-// Gets response from sign up attempt
-function favouriteResponse(e) {
-    document.getElementById('favourite-resposne').innerHTML = e.target.responseText;
+    window.location.reload();
 }
