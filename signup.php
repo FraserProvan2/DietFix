@@ -57,12 +57,16 @@ else if ($email == false) {
     echo "Please enter Email";
 }
 
-// Query to insert new email into df_users (Using a prepared statement)
 else {
+
+    // Hashes password
+    $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
+
+    // Query to insert new email into df_users (Using a prepared statement)
     $statement = $conn->prepare("INSERT INTO df_users (username, password, email) VALUES (?, ?, ?)");
     $statement->bindParam(1, $username);
-    $statement->bindParam(2, $password);
+    $statement->bindParam(2, $hashed_pass);
     $statement->bindParam(3, $email);
     $statement->execute();
-    echo "Account Created";
+    echo "<a style='color:#4CAF50'>Account Created</a>";
 }

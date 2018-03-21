@@ -21,9 +21,13 @@ $conn = new PDO("mysql:host=localhost;dbname=medotusc_dietfix;", "medotusc_frase
 // Gets users login info (in prepared statement)
 $username  = htmlentities($_GET["user"]);
 $password  = htmlentities($_GET["pass"]);
-$statement = $conn->prepare("SELECT * FROM df_users WHERE username=:theusername AND password=:thepassword");
+
+//rehash to check if password matches hashed PW in DB (not including salt)
+$hashedPwdInDb = password_hash($password, PASSWORD_DEFAULT);
+
+// Query to check username
+$statement = $conn->prepare("SELECT * FROM df_users WHERE username=:theusername");
 $statement->bindParam(":theusername", $username);
-$statement->bindParam(":thepassword", $password);
 $statement->execute();
 $row = $statement->fetch();
 
@@ -36,7 +40,6 @@ if ($username == false) {
     echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
     echo "</div>";
 }
-
 // Checks theres a password
 else if ($password == false) {
     header("HTTP/1.1 400 BAD REQUEST");
@@ -46,21 +49,16 @@ else if ($password == false) {
     echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
     echo "</div>";
 }
-
 // If username is valid assign to session + open homepage
-else if ($row != false) {
+    // Verifies password with rehash
+    else if (password_verify($password, $row['password'])) {
     header("HTTP/1.1 200 OK");
-    $session_array = array(
-        'id'       => $row['id'],
-        'username' => $row['username'],
-    );
+    $session_array          = array('id' => $row['id'], 'username' => $row['username']);
     $_SESSION['gatekeeper'] = $session_array;
     echo "<script> window.location='main.php'</script>";
 }
-
 // If details are incorrect
-else
-if ($row == false) {
+else {
     header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Username or Password is Incorrect";
