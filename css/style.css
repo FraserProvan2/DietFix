@@ -1,5 +1,4 @@
 /* Global */
-
 .logo{
   display: block;
   margin-left: auto;
@@ -14,15 +13,6 @@
 .body{
   background-color: #e9ecef;
   background-image: url('../img/bg-main.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
-  background-size: cover;
-  color:#3b3a36;
-}
-
-.index-body{
-background-image: url('../img/bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center; 
@@ -75,7 +65,6 @@ background-image: url('../img/bg.jpg');
   color:#3b3a36;
 }
 
-
 .footer{
   margin-top: 10px;
   border-top: none;
@@ -88,6 +77,88 @@ box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
   
 }
 
+/* Nav Bar further */
+  #nav {
+    background-color: #3b3a36!important;
+    color: #e9ecef;
+    }
+    
+  .navbar-light .navbar-nav .nav-link {
+    color: #e9ecef;
+  }
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #9CCC65;
+  }
+
+  .navbar-light .navbar-brand {
+    color: #e9ecef;
+  }
+
+  .navbar-light .navbar-brand:hover {
+    color: #9CCC65;
+  }
+
+  .navbar-fixed {
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+}
+
+.nav.navbar-nav {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.section-main{
+  margin-top: 10px;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+  padding: 20px;
+  -webkit-box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
+  -moz-box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
+  box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
+}
+
+.navbar-light .navbar-nav {
+    color: #e9ecef;
+}
+
+.navbar-light .navbar-nav:hover {
+    color: #9CCC65;
+}
+
+#btn {
+  background-color:#9CCC65; 
+  color:#3b3a36;
+}
+
+#btn:hover {
+  background-color:#8CB75A; 
+  color:#3b3a36;
+}
+
+.btn-text {
+    text-decoration: none;
+    color: #3b3a36;
+}
+
+.btn-text:hover {
+    text-decoration: none;
+    color: #3b3a36;
+}
+
+.link-normal {
+    color:#e9ecef;
+}
+
+.link-normal:hover {
+    color:#9CCC65;
+    text-decoration: none;
+}
+
+/* index.php */
 .card-footer {
   padding: .40rem 1.25rem;
 
@@ -120,8 +191,12 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 
+.jumbotron {
+    padding: 2rem 0;
+    margin-bottom: -1rem;
+    background-color: #e9ecef;
+}
 
-/* main.php */
 #homemodules{
   padding: 0px 0px;
 }
@@ -158,11 +233,12 @@ a {
   width: 100%; 
   overflow: hidden; 
   filter: brightness(20%);
+   max-height: auto;
 }
 
 @media only screen and (max-width: 700px) {
   .d-block {
-    height:250px;
+    height:auto;
   }
 }
 
@@ -248,97 +324,8 @@ margin-top:5px;
     vertical-align: text-top;
 }
 
-
 .button-href {
     padding: 3;
     margin-bottom: 1;
     font-size: 70%;
-}
-
-/* Nav Bar further */
-  #nav {
-    background-color: #3b3a36!important;
-    color: #e9ecef;
-    }
-    
-  .navbar-light .navbar-nav .nav-link {
-    color: #e9ecef;
-  }
-  .navbar-light .navbar-nav .nav-link:hover {
-    color: #9CCC65;
-  }
-
-  .navbar-light .navbar-brand {
-    color: #e9ecef;
-  }
-
-  .navbar-light .navbar-brand:hover {
-    color: #9CCC65;
-  }
-
-  .navbar-fixed {
-    top: 0;
-    z-index: 100;
-    position: fixed;
-    width: 100%;
-}
-
-.nav.navbar-nav {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.section-main{
-  margin-top: 10px;
-  background-color: #e9ecef;
-  border-radius: .3rem;
-  padding: 20px;
-  -webkit-box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
-  -moz-box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
-  box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
-}
-
-.navbar-light .navbar-nav {
-    color: #e9ecef;
-}
-
-.navbar-light .navbar-nav:hover {
-    color: #9CCC65;
-}
-
-.jumbotron {
-    padding: 2rem 0;
-    margin-bottom: -1rem;
-    background-color: #e9ecef;
-}
-
-
-#btn {
-  background-color:#9CCC65; 
-  color:#3b3a36;
-}
-
-#btn:hover {
-  background-color:#8CB75A; 
-  color:#3b3a36;
-}
-
-.btn-text {
-    text-decoration: none;
-    color: #3b3a36;
-}
-
-.btn-text:hover {
-    text-decoration: none;
-    color: #3b3a36;
-}
-
-.link-normal {
-    color:#e9ecef;
-}
-
-.link-normal:hover {
-    color:#9CCC65;
-    text-decoration: none;
 }

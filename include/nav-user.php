@@ -1,5 +1,8 @@
-<?php ob_start(); 
-error_reporting(0);
+<?php 
+
+//Fraser Provan 22/03/2018
+//include/nav-user.php - navbar for users
+
 ?>
     
 <nav class="navbar navbar-expand-lg navbar-light bg-light navColor" id="nav">
@@ -20,7 +23,7 @@ error_reporting(0);
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a class="link-normal" style="padding-right:10px;" href="myaccount2.php"><?php echo $_SESSION['gatekeeper']['username']; ?></a>
+      <a class="link-normal" style="padding-right:10px;" href="myaccount.php"><?php echo $_SESSION['gatekeeper']['username']; ?></a>
       <button class="btn btn-outline-success my-2 my-sm-0" href="signout.php" id="btn"><a class="btn-text" href="signout.php">Sign Out</a></button>
     </form>
   </div>

@@ -44,7 +44,6 @@ $error  = 0;
 
 // Checks for title
 if ($title == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Title is Required";
     echo "<br><br>";
@@ -55,7 +54,6 @@ if ($title == false) {
 
 // Checks for description
 else if ($description == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Description is Required";
     echo "<br><br>";
@@ -66,7 +64,6 @@ else if ($description == false) {
 
 // Checks for ingredients
 else if ($ingredients == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Ingredients is Required";
     echo "<br><br>";
@@ -77,7 +74,6 @@ else if ($ingredients == false) {
 
 // Checks for cookingtime
 else if ($cookingtime == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Cooking Time is Required";
     echo "<br><br>";
@@ -88,7 +84,6 @@ else if ($cookingtime == false) {
 
 // Checks for calories
 else if ($calories == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Calories is Required";
     echo "<br><br>";
@@ -186,7 +181,6 @@ else if ($calories == false) {
     }
 
     // Success alert
-    header("HTTP/1.1 200 OK");
     echo "<div class='alert alert-success' role='alert'>";
     echo "Meal Updated!";
     echo "<br><br>";

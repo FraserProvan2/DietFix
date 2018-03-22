@@ -1,5 +1,6 @@
 <?php session_start();
 include 'include/db.php'; ?>
+
 <!--
 Fraser Provan 04/03/2018
 MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)

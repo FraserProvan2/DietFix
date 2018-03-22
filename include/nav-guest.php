@@ -1,5 +1,8 @@
-<?php ob_start(); 
-error_reporting(0);
+<?php 
+
+//Fraser Provan 22/03/2018
+//include/nav-guest.php - navbar for guests
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light navColor" id="nav">
@@ -22,13 +25,10 @@ error_reporting(0);
     <form class="form-inline my-2 my-lg-0" method='get' action='signin.php'>
       <input class="form-control mr-sm-1 textlogin" type="search" name="user" placeholder="Username">
       <input class="form-control mr-sm-2" type="search" name="pass" placeholder="Password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn" style="margin-right:4px; margin-left:-3px;">Login</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn">Sign Up</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn" style="margin-left:-3.5px;">Login</button>
     </form>
   </div>
 </nav>
-
-
 
 <script>
 

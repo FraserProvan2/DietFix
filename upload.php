@@ -42,7 +42,6 @@ $error  = 0;
 
 // Checks for title
 if ($title == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Title is Required";
     echo "<br><br>";
@@ -53,7 +52,6 @@ if ($title == false) {
 
 // Checks for description
 else if ($description == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Description is Required";
     echo "<br><br>";
@@ -64,7 +62,6 @@ else if ($description == false) {
 
 // Checks for ingredients
 else if ($ingredients == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Ingredients is Required";
     echo "<br><br>";
@@ -75,7 +72,6 @@ else if ($ingredients == false) {
 
 // Checks for cookingtime
 else if ($cookingtime == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Cooking Time is Required";
     echo "<br><br>";
@@ -86,7 +82,6 @@ else if ($cookingtime == false) {
 
 // Checks for calories
 else if ($calories == false) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Calories is Required";
     echo "<br><br>";
@@ -109,7 +104,6 @@ else if ($calories == false) {
     if ($check !== false) {
         $uploadOk = 1;
     } else {
-        header("HTTP/1.1 400 BAD REQUEST");
         echo "<div class='alert alert-danger' role='alert'>";
         echo "File is not an image.";
         echo "<br><br>";
@@ -120,7 +114,6 @@ else if ($calories == false) {
 
     // Check file size
     if ($_FILES["upload"]["size"] > 500000) {
-        header("HTTP/1.1 400 BAD REQUEST");
         echo "<div class='alert alert-danger' role='alert'>";
         echo "Sorry, your file is too large.";
         echo "<br><br>";
@@ -133,7 +126,6 @@ else if ($calories == false) {
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
 
         //Only allows these file types
-        header("HTTP/1.1 400 BAD REQUEST");
         echo "<div class='alert alert-danger' role='alert'>";
         echo "Sorry, only JPG, JPEG, PNG files are allowed.";
         echo "<br><br>";
@@ -144,7 +136,6 @@ else if ($calories == false) {
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        header("HTTP/1.1 400 BAD REQUEST");
         echo "<div class='alert alert-danger' role='alert'>";
         echo "Sorry, your file was not uploaded.";
         echo "<br><br>";
@@ -292,7 +283,6 @@ else if ($calories == false) {
             $prepare_step15->bindParam(3, $step15);
             $prepare_step15->execute();
         }
-        header("HTTP/1.1 200 OK");
         echo "<div class='alert alert-success' role='alert'>";
         echo "Meal Uploaded!";
         echo "<br><br>";
@@ -302,7 +292,6 @@ else if ($calories == false) {
 
 // Catches any other errors
 } else {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, there was an error uploading your file.";
     echo "<br><br>";

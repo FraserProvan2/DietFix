@@ -30,7 +30,6 @@ $imageFileType     = strtolower(pathinfo($file_target, PATHINFO_EXTENSION)); //M
 if ($check !== false) {
     $uploadOk = 1;
 } else {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "File is not an image.";
     echo "<br><br>";
@@ -41,7 +40,6 @@ if ($check !== false) {
 
 // Check file size
 if ($_FILES["upload"]["size"] > 500000) {
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, your file is too large.";
     echo "<br><br>";
@@ -54,7 +52,6 @@ if ($_FILES["upload"]["size"] > 500000) {
 if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
 
     //Only allows these file types
-    header("HTTP/1.1 400 BAD REQUEST");
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, only JPG, JPEG, PNG files are allowed.";
     echo "<br><br>";
@@ -68,7 +65,6 @@ if (move_uploaded_file($_FILES["upload"]["tmp_name"], $file_target)) {
 
     //Updates image location in df_recipes table
     $conn->query("UPDATE df_recipes SET image = '$file_target' WHERE id = '$id'");
-    header("HTTP/1.1 200 OK");
     echo "<div class='alert alert-success' role='alert'>";
     echo "Image Updated";
     echo "<br><br>";

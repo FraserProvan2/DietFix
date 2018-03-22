@@ -1,6 +1,10 @@
 <?php
 session_start();
 include 'include/db.php';
+
+//Fraser Provan - 22/03/18 (New version)
+//index.php - homepage (formally main.php (index was login THEN homepage)
+
 ?>
 
 <!doctype html>
@@ -100,7 +104,7 @@ else {
                     ?>
                     <!-- Sign Up -->
                     <div class="col-sm-4">
-                        <h3>Sign Up</h3>
+                        <h3 class="section-title">Sign Up</h3>
                         <form class="signup">
                             <div class="form-group">
                                 <input class="form-control form-control" type="text" placeholder="Username" id="username" />

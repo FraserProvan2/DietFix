@@ -2,6 +2,9 @@
 session_start();
 include 'include/db.php';
 
+// Fraser Provan 18/03/2018
+// deletecomment.php - deletes comments from recipe page
+
 ?>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,9 +13,6 @@ include 'include/db.php';
 <script type='text/javascript' src='scripts/goback.js'></script>
 
 <?php
-
-// Fraser Provan 18/03/2018
-// deletecomment.php - deletes comments from recipe page
 
 //Gets id of chosen recipe
 $id = (int)$_POST['comment_id'];
