@@ -46,6 +46,8 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                     </div>
                 </div>
                 <div class="col-sm">
+
+                    
                     <!-- My Recipes -->
                     <h4 class="section-title">My Recipes</h4>
 
@@ -152,7 +154,25 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                                 </tbody>
                             </table>
                             <?php } //checks if they have any favourites ends ?>
+
+                            <h4 class="section-title">Account Settings</h4>
+                            <p>Change Password</p>
+                            <form method='POST' action='changepassword.php'>
+                                <div class="form-group">
+                                    <input class="form-control form-control" type="password" placeholder="Current Password" name="currentpassword" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control form-control" type="password" placeholder="New Password" name="newpassword_1" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control form-control" type="password" placeholder="Confirm New Password" name="newpassword_2" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn index_button" id="btn">Change Password</button>
+                                </div>
+                            </form>
                 </div>
+
             </div>
         </div>
 
