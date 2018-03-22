@@ -1,6 +1,6 @@
 <?php
-
-require 'include/user_auth.php';
+session_start();
+include 'include/db.php';
 
 // Fraser Provan 02/03/2018
 // comment.php - Submits comments
@@ -17,6 +17,3 @@ $statement->bindParam(2, $comment);
 $statement->bindParam(3, $userid);
 $statement->execute();
 
-?>
-
-<link rel="stylesheet" type="text/css" href="css/style.css">

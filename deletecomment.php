@@ -1,6 +1,6 @@
 <?php
-
-require 'include/user_auth.php';
+session_start();
+include 'include/db.php';
 
 ?>
 

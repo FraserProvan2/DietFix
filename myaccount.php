@@ -1,4 +1,5 @@
-<?php require 'include/user_auth.php'; ?>
+<?php session_start();
+include 'include/db.php'; ?>
 <!--
 Fraser Provan 04/03/2018
 MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
@@ -19,12 +20,12 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
 
 <div class="container-fluid background">
     <!-- Logo with link to index -->
-    <a href="main.php">
+    <a href="index.php">
         <img src="img/logo/dietfix.png" class="logo">
     </a>
 </div>
 
-<?php include 'include/nav.php';?>
+<?php include 'include/nav-user.php';?>
 
 <body class="body">
     <div class="container">

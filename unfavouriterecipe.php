@@ -1,4 +1,5 @@
-<?php require 'include/user_auth.php';?>
+<?php session_start();
+include 'include/db.php';?>
 
 <!--
 Fraser Provan 08/03/2018

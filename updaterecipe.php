@@ -1,4 +1,5 @@
-<?php require 'include/user_auth.php'; 
+<?php session_start();
+include 'include/db.php';
 
 //Users ID to locate recipe data
 $id      = $_GET["id"];
@@ -32,12 +33,12 @@ updaterecipe.php - update form for recipes
 
 <div class="container-fluid background">
     <!-- Logo with link to index -->
-    <a href="main.php">
+    <a href="index.php">
         <img src="img/logo/dietfix.png" class="logo">
     </a>
 </div>
 
-<?php include 'include/nav.php';?>
+<?php include 'include/nav-user.php';?>
 
 <body class="body">
     <div class="container">

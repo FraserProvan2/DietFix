@@ -1,4 +1,5 @@
-<?php require 'include/user_auth.php';?>
+<?php session_start();
+include 'include/db.php';?>
 
 <!--
 Fraser Provan 18/03/2018
@@ -189,7 +190,7 @@ else if ($calories == false) {
     echo "<div class='alert alert-success' role='alert'>";
     echo "Meal Updated!";
     echo "<br><br>";
-    echo "<form action='main.php'><input type='submit' value='Return Home' class='btn' id='btn'/></form>";
+    echo "<form action='index.php'><input type='submit' value='Return Home' class='btn' id='btn'/></form>";
     echo "</div>";
 }
 

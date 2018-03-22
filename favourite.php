@@ -1,6 +1,6 @@
 <?php
-
-require 'include/user_auth.php';
+session_start();
+include 'include/db.php';
 
 // Fraser Provan 04/03/2018
 // favourite.php - Favourites recipes
