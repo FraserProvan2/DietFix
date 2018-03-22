@@ -10,6 +10,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+ <div class="container">
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -26,6 +27,7 @@
       <a class="link-normal" style="padding-right:10px;" href="myaccount.php"><?php echo $_SESSION['gatekeeper']['username']; ?></a>
       <button class="btn btn-outline-success my-2 my-sm-0" href="signout.php" id="btn"><a class="btn-text" href="signout.php">Sign Out</a></button>
     </form>
+  </div>
   </div>
 </nav>
 

@@ -65,7 +65,7 @@ else {
                                         while ($most_fav = $most_favourited->fetch()) {
                                         ?>
 
-                                    <div class="carousel-item" id="myCarousel" style="max-height: 281px;" >
+                                    <div class="carousel-item" id="myCarousel" style="max-height: 357px;" >
                                         <a href="recipepage.php?id=<?php echo $most_fav['recipeid']; ?>">
                                             <img class="d-block" src="<?php echo $most_fav['image']; ?>">
                                         </a>
@@ -104,6 +104,7 @@ else {
                     ?>
                     <!-- Sign Up -->
                     <div class="col-sm-4">
+                    <div class="section-sub" style="background-color: #e9ecef">
                         <h3 class="section-title">Sign Up</h3>
                         <form class="signup">
                             <div class="form-group">
@@ -121,10 +122,11 @@ else {
                             <div class="form-group">
                                 <button type="button" class="btn btn index_button" onclick="signup()" id="btn">Create Account</button>
                             </div>
-                            <div id='signup-response'></div>
+                            <div id='signup-response'><br></div>
+                            
                         </form>
                     </div>
-
+                    </div>
                     <?php    
                     } else {
                     ?>
@@ -135,6 +137,7 @@ else {
                                 <?php echo $_SESSION['gatekeeper']['username']; ?>! </h2>
                             <p class="lead">DietFix is a community-driven recipe sharing website. Explore the catalogue of user-contributed
                                 recipes. Upload your own and receive feedback from other users through comments.</p>
+                            <p class="lead">Disclaimer: The content on this website is for demonstration purposes only.</p>
                         </div>
                     </div>
 
