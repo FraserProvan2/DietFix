@@ -25,11 +25,11 @@
         </ul>
         <form class="form-inline my-2 my-lg-0" method='get' action='signin.php'>
         <input class="form-control mr-sm-1 textlogin" type="search" name="user" placeholder="Username">
-        <input class="form-control mr-sm-2" type="search" name="pass" placeholder="Password">
+        <input class="form-control mr-sm-2" type="password" name="pass" placeholder="Password">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn" style="margin-left:-3.5px;">Login</button>
         </form>
     </div>
-        </div>
+    
     </nav>
 
 <script>

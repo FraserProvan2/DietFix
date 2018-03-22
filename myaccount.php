@@ -1,5 +1,8 @@
 <?php session_start();
-include 'include/db.php'; ?>
+include 'include/db.php'; 
+require 'include/check-user.php';
+?>
+
 
 <!--
 Fraser Provan 04/03/2018

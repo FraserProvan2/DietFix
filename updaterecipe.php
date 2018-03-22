@@ -1,5 +1,6 @@
 <?php session_start();
 include 'include/db.php';
+require 'include/check-user.php';
 
 //Users ID to locate recipe data
 $id      = $_GET["id"];

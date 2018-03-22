@@ -320,8 +320,21 @@ margin-top:5px;
     vertical-align: text-top;
 }
 
+/* myaccount.php */
 .button-href {
     padding: 3;
     margin-bottom: 1;
     font-size: 70%;
+}
+
+.text-red {
+    color: inherit;
+    text-decoration: none;
+    color:#B71C1C!important;
+}
+
+.text-red:hover {
+    color: inherit;
+    text-decoration: underline!important;
+    color:#B71C1C!important;
 }

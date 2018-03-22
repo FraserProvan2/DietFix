@@ -1,5 +1,6 @@
 <?php session_start();
-include 'include/db.php';?>
+include 'include/db.php';
+?>
 
 <!--
 Fraser Provan 18/03/2018
