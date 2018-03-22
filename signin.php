@@ -22,7 +22,7 @@ $conn = new PDO("mysql:host=localhost;dbname=medotusc_dietfix;", "medotusc_frase
 $username  = htmlentities($_GET["user"]);
 $password  = htmlentities($_GET["pass"]);
 
-//rehash to check if password matches hashed PW in DB (not including salt)
+// Rehash 
 $hashedPwdInDb = password_hash($password, PASSWORD_DEFAULT);
 
 // Query to check username
@@ -50,7 +50,7 @@ else if ($password == false) {
     echo "</div>";
 }
 // If username is valid assign to session + open homepage
-    // Verifies password with rehash
+    // Check if password matches hashed PW (algorithm to see if it corresponds to the given hash)
     else if (password_verify($password, $row['password'])) {
     header("HTTP/1.1 200 OK");
     $session_array          = array('id' => $row['id'], 'username' => $row['username']);
