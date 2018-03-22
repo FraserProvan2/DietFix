@@ -65,7 +65,7 @@ else {
                                         while ($most_fav = $most_favourited->fetch()) {
                                         ?>
 
-                                    <div class="carousel-item" id="myCarousel">
+                                    <div class="carousel-item" id="myCarousel" style="max-height: 281px;" >
                                         <a href="recipepage.php?id=<?php echo $most_fav['recipeid']; ?>">
                                             <img class="d-block" src="<?php echo $most_fav['image']; ?>">
                                         </a>
