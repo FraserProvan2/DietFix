@@ -53,7 +53,7 @@ else {
                     <h6 id="infotext">Most Favourited - All Time</h6>
 
                     <?php
-                        //Query that searches all time most favourites recipes
+                        // Query that searches all time most favourites recipes
                         $most_favourited = $conn->query("SELECT r.title, r.username, r.image, f.recipeid, count(*) as fav_total FROM df_favourites f LEFT JOIN df_recipes r ON r.id = f.recipeid GROUP BY f.recipeid ORDER BY fav_total DESC LIMIT 3");
                         ?>
 
@@ -61,7 +61,7 @@ else {
                             <div class="carousel-inner">
 
                                 <?php
-                                        //Fetches 3 records for carousel
+                                        // Fetches 3 records for carousel
                                         while ($most_fav = $most_favourited->fetch()) {
                                         ?>
 
@@ -81,7 +81,7 @@ else {
                                         </div>
                                     </div>
 
-                                    <?php }; //list or recipes loop ends ?>
+                                    <?php }; // list or recipes loop ends ?>
                             </div>
 
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -120,7 +120,7 @@ else {
                                 <input class="form-control form-control" type="email" placeholder="Email Address" id="email" />
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn index_button" onclick="signup()" id="btn">Create Account</button>
+                                <button type="button" class="btn btn-outline-success" onclick="signup()" id="btn">Create Account</button>
                             </div>
                             <div id='signup-response'><br></div>
                             
@@ -154,7 +154,7 @@ else {
                     <div class="recipelist">
 
                         <?php
-                            //Selects all from df_recipes
+                            // Selects all from df_recipes
                             $results = $conn->query("SELECT * from df_recipes ORDER BY RAND()");
                             ?>
 
@@ -172,7 +172,7 @@ else {
                                 <tbody>
 
                                         <?php
-                                        //Echos results in table
+                                        // Displays results in table
                                         while ($row = $results->fetch()) {
                                         $id = $row['id'];
                                         ?>
@@ -194,7 +194,7 @@ else {
                                             </td>
                                         </tr>
 
-                                        <?php }; //list or recipes loop ends ?>
+                                        <?php }; // list or recipes loop ends ?>
                                 </tbody>
                             </table>
 
@@ -208,7 +208,7 @@ else {
             <div class="row">
                 <div class="col">
                     <?php
-                            //Query to count favourite and create new row (most_fav), order by most_fav and JOIN with df_recipes to get recipe information
+                            // Query to count favourite and create new row (most_fav), order by most_fav and JOIN with df_recipes to get recipe information
                             $trending = $conn->query("SELECT f.recipeid, r.title, r.username, r.image, count(*) as fav_total FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.datetime >=  DATE(NOW()) - INTERVAL 7 DAY GROUP BY f.recipeid ORDER BY fav_total DESC LIMIT 3");
                             ?>
 
@@ -217,7 +217,7 @@ else {
                         <div class="card-deck" id="small-pad">
 
                                 <?php
-                                //Loops 3 times creating 3 most favourited cards
+                                // Loops 3 times creating 3 most favourited cards
                                 while ($recipe_trends = $trending->fetch()) {
                                 ?>
 
@@ -239,7 +239,7 @@ else {
                                     </div>
                                 </div>
 
-                                <?php } ; //Most favourited loop ends ?>
+                                <?php } ; // Most favourited loop ends ?>
 
                         </div>
 
@@ -251,7 +251,7 @@ else {
                 <div class="col">
 
                         <?php
-                        //Query to randomly select 3 recipes from df_recipes
+                        // Query to randomly select 3 recipes from df_recipes
                         $random_results = $conn->query("SELECT * FROM df_recipes ORDER BY RAND() LIMIT 3");
                         ?>
 
@@ -260,7 +260,7 @@ else {
                         <div class="card-deck" id="small-pad">
 
                                 <?php
-                                //Loops 3 times creating 3 randomized recipe cards
+                                // Loops 3 times creating 3 randomized recipe cards
                                 while ($random = $random_results->fetch()) {
                                 ?>
 

@@ -9,6 +9,7 @@ Fraser Provan 04/03/2018
 MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
 -->
 
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -167,7 +168,7 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                                     <input class="form-control form-control" type="password" placeholder="Confirm New Password" name="newpassword_2" />
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn index_button" id="btn">Change Password</button>
+                                    <button type="submit" class="btn btn btn-outline-success" id="btn">Change Password</button>
                                 </div>
                             </form>
                 </div>

@@ -50,16 +50,6 @@
  box-shadow: 10px 10px 40px -17px rgba(0,0,0,0.75);
 }
 
-#btn {
-  background-color:#9CCC65; 
-  color:#3b3a36;
-}
-
-#btn:hover {
-  background-color:#8CB75A; 
-  color:#3b3a36;
-}
-
 #notifcation-btn {
   background-color:#9CCC65; 
   color:#3b3a36;
@@ -129,13 +119,14 @@ box-shadow: 10px 10px 37px -8px rgba(66,66,66,0.72);
     color: #9CCC65;
 }
 
+
 #btn {
-  background-color:#9CCC65; 
+  background-color:#66BB6A; 
   color:#3b3a36;
 }
 
 #btn:hover {
-  background-color:#8CB75A; 
+  background-color:#A5D6A7; 
   color:#3b3a36;
 }
 
@@ -274,7 +265,7 @@ a {
 /* recipepage */
 .image{
   width:100%;
-  max-width:700px;
+  max-width:550px;
 }
 
 .step{

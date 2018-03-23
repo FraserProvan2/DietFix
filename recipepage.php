@@ -14,7 +14,6 @@ $row = $results->fetch();
 $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY id ASC");
 
 ?>
-
     <html lang="en">
 
     <head>
@@ -69,11 +68,12 @@ if (!isset($_SESSION["gatekeeper"])) {
                             <div class="row">
                                 <div class="col-sm">
                                     <?php echo "<img src='$row[image]' class='Image border-secondary' id='recipepage-padding'/>"; 
-                            
+                           
                             // Chooses whether to pick real favourite button or dummy one
                             if (!isset($_SESSION["gatekeeper"])) {
                                 ?>
-                                    <button type="button" class="btn" id="fav_guest" onclick="" style="margin-top:15px">Favourite</button>
+                                    <button type="button" class="btn btn-outline-success" id="fav_guest" onclick="" style="margin-top:15px">Favourite</button>
+                                    
                                     <?php
                             } 
                             else
@@ -98,12 +98,12 @@ if (!isset($_SESSION["gatekeeper"])) {
                                 <!-- Favourite button -->
                                 <input type="hidden" id="recipe_id_favourite" value="<?php echo $id; ?>">
                                 <input type="hidden" id="userid_favourite" value="<?php echo $_SESSION['gatekeeper']['id']; ?>">
-                                <button type="button" class="btn" id="btn" id="Favourite" onclick="favourite()" style="margin-top:15px">Favourite</button>
+                                <button type="button" class="btn btn-outline-success" id="btn" id="Favourite" onclick="favourite()" style="margin-top:15px">Favourite</button>
                                 <?php }
                             } ?>
 
                                      <!-- Print button -->
-                                        <button type="button" class="btn" id="btn" onclick="printRecipe()" style="margin-top:15px">Print</button>
+                                        <button type="button" class="btn btn-outline-success" id="btn" onclick="printRecipe()" style="margin-top:15px">Print</button>
 
                                         <br>
                                         <br>
@@ -178,7 +178,7 @@ if (!isset($_SESSION["gatekeeper"])) {
                                             <div class="form-group">
                                                 <textarea class="form-control" rows="3" placeholder="Share your thoughts..." id="comment"></textarea>
                                             </div>
-                                            <button type="button" class="btn" id="btn" onclick="comment()">Submit</button>
+                                            <button type="button" class="btn btn-outline-success" id="btn" onclick="comment()">Submit</button>
 
                                             <br>
                                             <br>
@@ -215,7 +215,7 @@ if (!isset($_SESSION["gatekeeper"])) {
                                             ?>
                                                 <form method="POST" action="deletecomment.php?comment_id=<?php echo $comments['comment_id']; ?>" style="display: unset;">
                                                     <input type="hidden" name="comment_id" value="<?php echo $comments['comment_id']; ?>">
-                                                    <input type="submit" value="Delete" class="btn btn-link button-href" />
+                                                    <input type="submit" value="Delete" class="btn btn-link button-href"/>
                                                 </form>
                                                 <?php
                                             

@@ -25,6 +25,6 @@ $sql->execute();
 echo "<div class='alert alert-success' role='alert'>";
 echo "Comment Deleted";
 echo "<br><br>";
-echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
 
 echo "</div>";

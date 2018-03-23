@@ -25,7 +25,7 @@ $conn->query("DELETE FROM df_favourites WHERE recipeid = '$id' AND userid = '$us
 // Link to return to my account
 echo "Recipe unfavourited!";
 echo "<br><br>";
-echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
 
 ?>
 

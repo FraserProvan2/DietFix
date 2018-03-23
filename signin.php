@@ -35,7 +35,7 @@ if ($username == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Please enter a Username";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 // Checks theres a password
@@ -43,7 +43,7 @@ else if ($password == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Please enter a Password";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 // If username is valid assign to session + open homepage
@@ -58,7 +58,7 @@ else {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Username or Password is Incorrect";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 

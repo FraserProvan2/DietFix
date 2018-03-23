@@ -7,6 +7,7 @@ require 'include/check-user.php';
 
 ?>
 
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -153,7 +154,7 @@ require 'include/check-user.php';
                                 <label>Step 15</label>
                                 <textarea class="form-control" rows="2" name="step15" id="step15"></textarea>
                             </div>
-                            <button type="submit" class="btn" id="btn">Upload Recipe</button>
+                            <button type="submit" class="btn" id="btn btn-outline-success">Upload Recipe</button>
                     </form>
                     </div>
                 </div>

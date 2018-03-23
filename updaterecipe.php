@@ -17,6 +17,7 @@ Fraser Provan 18/03/2018
 updaterecipe.php - update form for recipes
 -->
 
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -63,7 +64,7 @@ updaterecipe.php - update form for recipes
                             <label>(Max 500KB)</label>
                             <div class="custom-file">
                                 <input type="file" name="upload" id="upload" class='imageuploader'>
-                                <button type="submit" class="btn" id="btn">Update Image</button>
+                                <button type="submit" class="btn btn-outline-success" id="btn">Update Image</button>
                             </div>
                     </form>
 
@@ -117,7 +118,7 @@ updaterecipe.php - update form for recipes
 
                         <?php } ?>
 
-                        <button type="submit" class="btn" id="btn">Update Recipe</button>
+                        <button type="submit" class="btn" id="btn btn-outline-success">Update Recipe</button>
                     </form>
                     </div>
                 </div>

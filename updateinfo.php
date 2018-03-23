@@ -48,7 +48,7 @@ if ($title == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Title is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -58,7 +58,7 @@ else if ($description == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Description is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -68,7 +68,7 @@ else if ($ingredients == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Ingredients is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -78,7 +78,7 @@ else if ($cookingtime == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Cooking Time is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -88,7 +88,7 @@ else if ($calories == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Calories is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 } else {
@@ -185,7 +185,7 @@ else if ($calories == false) {
     echo "<div class='alert alert-success' role='alert'>";
     echo "Meal Updated!";
     echo "<br><br>";
-    echo "<form action='index.php'><input type='submit' value='Return Home' class='btn' id='btn'/></form>";
+    echo "<form action='index.php'><input type='submit' value='Return Home' class='btn btn-outline-success' id='btn'/></form>";
     echo "</div>";
 }
 

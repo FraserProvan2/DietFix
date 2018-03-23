@@ -31,7 +31,7 @@ if ($checked == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Incorrect Password";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 
@@ -40,7 +40,7 @@ else if ($newpassword == false OR $newpassword2 == false){
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Please enter new password and confirm";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 
@@ -49,7 +49,7 @@ else if ($newpassword !== $newpassword2) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "New password doesn't match confirmation";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 
@@ -63,7 +63,7 @@ else {
     echo "<div class='alert alert-success' role='alert'>";
     echo "Password Updated!";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 

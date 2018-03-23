@@ -45,7 +45,7 @@ if ($title == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Title is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -55,7 +55,7 @@ else if ($description == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Description is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -65,7 +65,7 @@ else if ($ingredients == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Ingredients is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -75,7 +75,7 @@ else if ($cookingtime == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Cooking Time is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 }
@@ -85,7 +85,7 @@ else if ($calories == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Calories is Required";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $error = 1;
 } else if (isset($_FILES)) {
@@ -107,7 +107,7 @@ else if ($calories == false) {
         echo "<div class='alert alert-danger' role='alert'>";
         echo "File is not an image.";
         echo "<br><br>";
-        echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+        echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
         echo "</div>";
         $uploadOk = 0;
     }
@@ -117,7 +117,7 @@ else if ($calories == false) {
         echo "<div class='alert alert-danger' role='alert'>";
         echo "Sorry, your file is too large.";
         echo "<br><br>";
-        echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+        echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
         echo "</div>";
         $uploadOk = 0;
     }
@@ -129,7 +129,7 @@ else if ($calories == false) {
         echo "<div class='alert alert-danger' role='alert'>";
         echo "Sorry, only JPG, JPEG, PNG files are allowed.";
         echo "<br><br>";
-        echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+        echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
         echo "</div>";
         $uploadOk = 0;
     }
@@ -139,7 +139,7 @@ else if ($calories == false) {
         echo "<div class='alert alert-danger' role='alert'>";
         echo "Sorry, your file was not uploaded.";
         echo "<br><br>";
-        echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+        echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
         echo "</div>";
 
         // if everything is ok, try to upload file
@@ -286,7 +286,7 @@ else if ($calories == false) {
         echo "<div class='alert alert-success' role='alert'>";
         echo "Meal Uploaded!";
         echo "<br><br>";
-        echo "<form action='index.php'><input type='submit' value='Return Home' class='btn' id='btn'/></form>";
+        echo "<form action='index.php'><input type='submit' value='Return Home' class='btn btn-outline-success' id='btn'/></form>";
         echo "</div>";
     }
 
@@ -295,7 +295,7 @@ else if ($calories == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, there was an error uploading your file.";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
 }
 

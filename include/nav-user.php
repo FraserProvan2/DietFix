@@ -23,10 +23,12 @@
         <a class="nav-link" href="uploadrecipe.php">Upload Recipe</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+      
+      <form class="form-inline my-2 my-lg-0" action="signout.php">
       <a class="link-normal" style="padding-right:10px;" href="myaccount.php"><?php echo $_SESSION['gatekeeper']['username']; ?></a>
-      <button class="btn btn-outline-success my-2 my-sm-0" href="signout.php" id="btn"><a class="btn-text" href="signout.php">Sign Out</a></button>
-    </form>
+          <button class="btn btn-outline-success my-2 my-sm-0" id="btn" type="submit">Sign Out</button>
+       </form>
+       
   </div>
   </div>
 </nav>

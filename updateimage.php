@@ -33,7 +33,7 @@ if ($check !== false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "File is not an image.";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $uploadOk = 0;
 }
@@ -43,7 +43,7 @@ if ($_FILES["upload"]["size"] > 500000) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, your file is too large.";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $uploadOk = 0;
 }
@@ -55,7 +55,7 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, only JPG, JPEG, PNG files are allowed.";
     echo "<br><br>";
-    echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
+    echo "<button onclick='goBack()' class='btn btn-outline-success' id='btn'>Go Back</button>";
     echo "</div>";
     $uploadOk = 0;
 }
@@ -68,7 +68,7 @@ if (move_uploaded_file($_FILES["upload"]["tmp_name"], $file_target)) {
     echo "<div class='alert alert-success' role='alert'>";
     echo "Image Updated";
     echo "<br><br>";
-    echo "<form action='index.php'><input type='submit' value='Return Home' class='btn' id='btn'/></form>";
+    echo "<form action='index.php'><input type='submit' value='Return Home' class='btn btn-outline-success' id='btn'/></form>";
     echo "</div>";
 }
 
