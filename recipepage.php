@@ -5,12 +5,12 @@ include 'include/db.php';
 // Fraser Provan 01/03/2018
 // recipepage.php - Opens recipes from database (bootstrap remake)
 
-//Users ID to locate recipe data
+// recipe ID to locate recipe data
 $id = $_GET["id"];
 $results = $conn->query("SELECT * from df_recipes WHERE id = '$id'");
 $row = $results->fetch();
 
-//recipe ID to gather the steps
+// recipe ID to gather the steps
 $results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY id ASC");
 
 ?>
@@ -192,7 +192,7 @@ if (!isset($_SESSION["gatekeeper"])) {
                                     <!-- Comments display -->
                                     <?php
                             
-                                //Query to find comments
+                                // Query to find comments
                                 $find_comments = $conn->query("SELECT c.*, c.id AS 'comment_id', u.username, u.id FROM df_comments c LEFT JOIN df_users u ON u.id = c.userid WHERE c.recipeid = '$id' ORDER BY 'commentid' DESC");
                                 
                                 while ($comments = $find_comments->fetch()) {?>
@@ -208,10 +208,10 @@ if (!isset($_SESSION["gatekeeper"])) {
 
                                             <?php
 
-                                        //If to make delete button appear if its there own comment OR its the users own recipe page
+                                        // If to make delete button appear if its there own comment OR its the users own recipe page
                                         if ($comments['username'] == $_SESSION['gatekeeper']['username'] || $row['userid'] == $_SESSION['gatekeeper']['id']){
                         
-                                            //Delete button
+                                            // Delete button
                                             ?>
                                                 <form method="POST" action="deletecomment.php?comment_id=<?php echo $comments['comment_id']; ?>" style="display: unset;">
                                                     <input type="hidden" name="comment_id" value="<?php echo $comments['comment_id']; ?>">
@@ -220,8 +220,9 @@ if (!isset($_SESSION["gatekeeper"])) {
                                                 <?php
                                             
                                         }
-                                        //Echos
                                         echo "<br>";
+                                        
+                                        // displays comment
                                         echo $comments['comment']; ?>
 
                                         <br>
@@ -236,24 +237,6 @@ if (!isset($_SESSION["gatekeeper"])) {
 
                 <?php include 'include/footer.php';?>
 
-                <script>
-
-                    //Script for unfavouriting recipes (Refreshes afterwards)
-                    function unfavouriteRecipe2() {
-
-                        var xhr2 = new XMLHttpRequest();
-                        var a = document.getElementById("unfav_recipeid").value;
-                        var b = document.getElementById("unfav_userid").value;
-
-
-                        xhr2.open('POST', 'unfavouriterecipe.php?recipeid=' + a + '&userid=' + b);
-                        xhr2.send();
-
-                        window.location.reload();
-
-                    }
-                </script>
-
             </body>
         </div>
 
@@ -263,4 +246,18 @@ if (!isset($_SESSION["gatekeeper"])) {
         document.getElementById("fav_guest").addEventListener("click", function () {
             alert("You need to be signed in to favourite!");
         });
+        
+        // Script for unfavouriting recipes (Refreshes afterwards)
+        function unfavouriteRecipe2() {
+
+            var xhr2 = new XMLHttpRequest();
+            var a = document.getElementById("unfav_recipeid").value;
+            var b = document.getElementById("unfav_userid").value;
+
+            xhr2.open('POST', 'unfavouriterecipe.php?recipeid=' + a + '&userid=' + b);
+            xhr2.send();
+
+            window.location.reload();
+
+                    }
     </script>

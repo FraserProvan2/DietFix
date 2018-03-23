@@ -5,7 +5,7 @@ include 'include/db.php';
 // Fraser Provan 02/03/2018
 // comment.php - Submits comments
 
-//Gets user info + comment info
+// Gets user info + comment info
 $username  = $_SESSION['gatekeeper']['username'];
 $userid    = $_SESSION['gatekeeper']['id'];
 $comment   = htmlentities(ucfirst($_GET['comment']));

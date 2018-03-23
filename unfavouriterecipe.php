@@ -15,14 +15,14 @@ unfavouriterecipe.php - unfavourites recipe (My Account)
 
 <?php
 
-//Gets recipes id and user id
+// Gets recipes id and user id
 $id     = $_GET['recipeid'];
 $userid = $_GET['userid'];
 
-//Query to delete from df_favourites
+// Query to delete from df_favourites
 $conn->query("DELETE FROM df_favourites WHERE recipeid = '$id' AND userid = '$userid'");
 
-//Link to return to my account
+// Link to return to my account
 echo "Recipe unfavourited!";
 echo "<br><br>";
 echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";

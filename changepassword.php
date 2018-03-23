@@ -10,19 +10,24 @@ include 'include/db.php';
 
 <?php
 
+// Gets user input
 $userid = $_SESSION['gatekeeper']['id'];
 $currentpassword  = htmlentities($_POST["currentpassword"]);
 $newpassword  = htmlentities($_POST["newpassword_1"]);
 $newpassword2 = htmlentities($_POST["newpassword_2"]);
 
+// Selects users data
 $users = $conn->query("SELECT * FROM df_users WHERE id = '$userid'");
 $checked_users = $users->fetch();
 
+// Checks if the users input matches hashed password
 $checked = password_verify($currentpassword, $checked_users['password']);
+
+// Hashes new password
 $newhashed_pass = password_hash($newpassword, PASSWORD_DEFAULT);
 
+// Checks if current password is correct
 if ($checked == false) {
-    //incorrect password
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Incorrect Password";
     echo "<br><br>";
@@ -30,8 +35,8 @@ if ($checked == false) {
     echo "</div>";
 }
 
+// Checks if new password or new password confirmation is empty
 else if ($newpassword == false OR $newpassword2 == false){
-    //both new passwords havnt been entered
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Please enter new password and confirm";
     echo "<br><br>";
@@ -39,16 +44,17 @@ else if ($newpassword == false OR $newpassword2 == false){
     echo "</div>";
 }
 
+// Checks if new password and password confirmation match
 else if ($newpassword !== $newpassword2) {
-    //passwords dont match
     echo "<div class='alert alert-danger' role='alert'>";
     echo "New password doesn't match confirmation";
     echo "<br><br>";
     echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
     echo "</div>";
 }
+
+// Updates users password information
 else {
-    //change users password
     // Updates recipe information (Using prepared statement)
     $change_pass = $conn->prepare("UPDATE df_users SET password = ? WHERE id = ?");
     $change_pass->bindParam(1, $newhashed_pass);
@@ -59,7 +65,6 @@ else {
     echo "<br><br>";
     echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
     echo "</div>";
-
 }
 
 ?>

@@ -2,12 +2,12 @@
 include 'include/db.php';
 require 'include/check-user.php';
 
-//Users ID to locate recipe data
+// Users ID to locate recipe data
 $id      = $_GET["id"];
 $results = $conn->query("SELECT * from df_recipes WHERE id = '$id'");
 $row     = $results->fetch();
 
-//recipe ID to gather the steps
+// recipe ID to gather the steps
 $countsteps = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY id ASC");
                            
 ?>

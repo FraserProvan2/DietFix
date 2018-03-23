@@ -14,7 +14,7 @@ session_start();
 // Fraser Provan 23/02/2018
 // signin.php - Signs user in
 
-//Connects to Database
+// Connects to Database
 $conn = new PDO("mysql:host=localhost;dbname=medotusc_dietfix;", "medotusc_fraser", "NHD4?oWU5Bpo");
 
 // Gets users login info (in prepared statement)
@@ -52,7 +52,6 @@ else if ($password == false) {
     $session_array          = array('id' => $row['id'], 'username' => $row['username']);
     $_SESSION['gatekeeper'] = $session_array;
     header('location: index.php');
-    
 }
 // If details are incorrect
 else {
@@ -61,7 +60,6 @@ else {
     echo "<br><br>";
     echo "<button onclick='goBack()' class='btn' id='notifcation-btn'>Go Back</button>";
     echo "</div>";
-
 }
 
 ?>

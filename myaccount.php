@@ -1,5 +1,5 @@
 <?php session_start();
-include 'include/db.php'; 
+include 'include/db.php';
 require 'include/check-user.php';
 ?>
 
@@ -42,16 +42,15 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                         <h1>
                             <?php echo ucfirst($_SESSION['gatekeeper']['username']); ?>'s Account
                             <h1>
-                                <h6>Manage your uploaded and favourited recipes</h6>
+                            <h6>Manage your uploaded and favourited recipes</h6>
                     </div>
                 </div>
                 <div class="col-sm">
 
-                    
                     <!-- My Recipes -->
                     <h4 class="section-title">My Recipes</h4>
 
-                        <?php
+                    <?php
                         //Selects all from recipes when username is the same (for error "you have no uploaded meals")
                         $username = $_SESSION['gatekeeper']['username'];
                         $check = $conn->query("SELECT * from df_recipes WHERE '$username' = username"); 
@@ -66,45 +65,45 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                         }
                         else {
                             ?>
-                            <table class='table table-hover' id='myTable'>
-                                <col>
-                                <thead>
-                                    <tr>
-                                        <th scope='col' id='table-heading' width="60%;">Recipe Title</th>
-                                        <th scope='col' id='table-heading' width="20%;"></th>
-                                        <th scope='col' id='table-heading' width="20%;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <table class='table table-hover' id='myTable'>
+                            <col>
+                            <thead>
+                                <tr>
+                                    <th scope='col' id='table-heading' width="60%;">Recipe Title</th>
+                                    <th scope='col' id='table-heading' width="20%;"></th>
+                                    <th scope='col' id='table-heading' width="20%;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
                                 <?php 
                                 //Looped data
                                 while ($row = $results->fetch()) {
                                 $id = $row['id']; //Used for deleting recipes
                                 ?>
-                                    <tr>
-                                        <td>
-                                            <a href='recipepage.php?id=<?php echo $id; ?>' class='title'>
-                                                <?php echo $row['title']; ?>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href='updaterecipe.php?id=<?php echo $id; ?>'>Edit Recipe</a>
-                                        </td>
-                                        <td>
-                                            <a href='deleterecipe.php?id=<?php echo $id; ?>' onclick='return deleteRecipe()' class='text-red'>Delete Recipe</a>
-                                        </td>
+                                <tr>
+                                    <td>
+                                        <a href='recipepage.php?id=<?php echo $id; ?>' class='title'>
+                                            <?php echo $row['title']; ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href='updaterecipe.php?id=<?php echo $id; ?>'>Edit Recipe</a>
+                                    </td>
+                                    <td>
+                                        <a href='deleterecipe.php?id=<?php echo $id; ?>' onclick='return deleteRecipe()' class='text-red'>Delete Recipe</a>
+                                    </td>
 
-                                    </tr>
-                                    <?php } //My recipes table end (Outside of loop) ?>
-                                </tbody>
-                            </table>
+                                </tr>
+                                <?php } //My recipes table end (Outside of loop) ?>
+                            </tbody>
+                        </table>
                         <?php } //checks if they have any uploaded meals ends ?>
 
                         <!-- My Favourites -->
                         <h4 class="section-title">My Favourites</h4>
 
-                            <?php
+                        <?php
                             //Gets user ID
                             $userid = $_SESSION['gatekeeper']['id'];
 
@@ -132,7 +131,7 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                                 </thead>
                                 <tbody>
 
-                                        <?php
+                                    <?php
                                         //Looped data
                                         while ($favourited = $favourites->fetch()) {
                                                       

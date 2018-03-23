@@ -26,7 +26,7 @@ $file_target       = $dir . $username . time() . '-' . uniqid() . $ext; //Gives 
 $uploadOk          = 1;
 $imageFileType     = strtolower(pathinfo($file_target, PATHINFO_EXTENSION)); //Makes sure its image
 
-//If file is image
+// If file is image
 if ($check !== false) {
     $uploadOk = 1;
 } else {
@@ -51,7 +51,7 @@ if ($_FILES["upload"]["size"] > 500000) {
 // Allow certain file formats
 if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
 
-    //Only allows these file types
+    // Only allows these file types
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Sorry, only JPG, JPEG, PNG files are allowed.";
     echo "<br><br>";
@@ -60,10 +60,10 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
     $uploadOk = 0;
 }
 
-//Upload file + Update table
+// Upload file + Update table
 if (move_uploaded_file($_FILES["upload"]["tmp_name"], $file_target)) {
 
-    //Updates image location in df_recipes table
+    // Updates image location in df_recipes table
     $conn->query("UPDATE df_recipes SET image = '$file_target' WHERE id = '$id'");
     echo "<div class='alert alert-success' role='alert'>";
     echo "Image Updated";

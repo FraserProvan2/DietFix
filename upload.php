@@ -100,7 +100,7 @@ else if ($calories == false) {
     $uploadOk          = 1;
     $imageFileType     = strtolower(pathinfo($file_target, PATHINFO_EXTENSION)); //Makes sure its image
 
-    //If file is image
+    // If file is image
     if ($check !== false) {
         $uploadOk = 1;
     } else {
@@ -157,7 +157,7 @@ else if ($calories == false) {
         $insert_recipeinfo->bindParam(8, $calories);
         $insert_recipeinfo->execute();
 
-        //get recipeid from df_recipes (Selects the last entry)
+        // get recipeid from df_recipes (Selects the last entry)
         $results  = $conn->query("SELECT * FROM df_recipes ORDER BY id DESC LIMIT 1");
         $lastrow  = $results->fetch();
         $recipeid = $lastrow["id"];

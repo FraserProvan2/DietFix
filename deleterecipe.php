@@ -12,7 +12,8 @@ include 'include/db.php';
 <div class='alert alert-success' role='alert'>
 
 <?php
-//Gets id of chosen recipe
+
+// Gets id of chosen recipe
 $id = $_GET['id'];
 
 // Queries to delete recipe from df_recipes and relevent ties

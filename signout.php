@@ -1,6 +1,6 @@
 <?php
 
-//Keeps session
+// Keeps session
 session_start();
 
 // Fraser Provan 23/02/2018
