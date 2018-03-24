@@ -27,7 +27,7 @@ include 'include/db.php';
 <div class="container-fluid background">
     <!-- Logo with link to index -->
     <a href="index.php">
-        <img src="img/logo/dietfix.png" class="logo">
+        <img src="img/logo/dietfix-logo.png" class="logo">
     </a>
 </div>
 
