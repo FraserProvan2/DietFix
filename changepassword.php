@@ -16,8 +16,10 @@ $currentpassword  = htmlentities($_POST["currentpassword"]);
 $newpassword  = htmlentities($_POST["newpassword_1"]);
 $newpassword2 = htmlentities($_POST["newpassword_2"]);
 
-// Selects users data
-$users = $conn->query("SELECT * FROM df_users WHERE id = '$userid'");
+// Selects users data (Using prepared statements)
+$users = $conn->prepare("SELECT * FROM df_users WHERE id = ?");
+$users>bindParam(1, $userid);
+$users>execute();
 $checked_users = $users->fetch();
 
 // Checks if the users input matches hashed password

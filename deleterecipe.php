@@ -16,10 +16,20 @@ include 'include/db.php';
 // Gets id of chosen recipe
 $id = $_GET['id'];
 
-// Queries to delete recipe from df_recipes and relevent ties
-$conn->query("DELETE FROM df_recipes WHERE id = '$id'");
-$conn->query("DELETE FROM df_steps2 WHERE recipeid = '$id'");
-$conn->query("DELETE FROM df_favourites WHERE recipeid = '$id'");
+//deletes recipe from df_recipes
+$delete_recipes = $conn->prepare("DELETE FROM df_recipes WHERE id = ?");
+$delete_recipes>bindParam(1, $id);
+$delete_recipes>execute();
+
+//deletes recipe from df_steps2
+$delete_steps = $conn->prepare("DELETE FROM df_steps2 WHERE recipeid = ?");
+$delete_steps>bindParam(1, $id);
+$delete_steps>execute();
+
+//deletes recipe from df_favourites
+$delete_favourites = $conn->prepare("DELETE FROM df_favourites WHERE recipeid = ?");
+$delete_favourites>bindParam(1, $id);
+$delete_favourites>execute();
 
 //Link to return to my account
 echo "Recipe Deleted, return to <a href='myaccount.php'>My Account</a>";
