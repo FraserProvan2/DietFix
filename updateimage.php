@@ -64,7 +64,11 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
 if (move_uploaded_file($_FILES["upload"]["tmp_name"], $file_target)) {
 
     // Updates image location in df_recipes table
-    $conn->query("UPDATE df_recipes SET image = '$file_target' WHERE id = '$id'");
+    $statement = $conn->prepare("UPDATE df_recipes SET image = ? WHERE id = ?");
+    $statement->bindParam(1, $file_target);
+    $statement->bindParam(2, $id);
+    $statement->execute();
+
     echo "<div class='alert alert-success' role='alert'>";
     echo "Image Updated";
     echo "<br><br>";

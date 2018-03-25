@@ -20,7 +20,10 @@ $id     = $_GET['recipeid'];
 $userid = $_GET['userid'];
 
 // Query to delete from df_favourites
-$conn->query("DELETE FROM df_favourites WHERE recipeid = '$id' AND userid = '$userid'");
+$statement = $conn->prepare("DELETE FROM df_favourites WHERE recipeid = ? AND userid = ?");
+$statement->bindParam(1, $id);
+$statement->bindParam(2, $userid);
+$statement->execute();
 
 // Link to return to my account
 echo "Recipe unfavourited!";

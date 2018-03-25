@@ -10,20 +10,18 @@ $userid    = $_GET['userid_favourite'];
 $recipe_id = $_GET['recipe_id_favourite'];
 
 // Searches df_favourites to see if recipe is already favourited
-$results = $conn->query("SELECT * from df_favourites WHERE $userid = userid AND $recipe_id = recipeid");
-$row     = $results->fetch();
+$selectrecipes = $conn->prepare("SELECT * from df_favourites WHERE ? = userid AND ? = recipeid");
+$selectrecipes->bindParam(1, $userid);
+$selectrecipes->bindParam(2, $recipe_id);
+$selectrecipes->execute();
+$row = $selectrecipes->fetch();
 
 // Checks if already favourited
-if ($row == true) {
-    echo "<a id='error-font'>Recipe Already Favourited! Manage Favourites on <a href='myaccount.php'>My Account</a></a>";
+if ($row !== true) {
+
+    // Inserts favourite into table
+    $insert_comment = $conn->prepare("INSERT INTO df_favourites (userid, recipeid) VALUES (?, ?)");
+    $insert_comment->bindParam(1, $userid);
+    $insert_comment->bindParam(2, $recipe_id);
+    $insert_comment->execute();
 }
-
-// Favourites Recipe
-else {
-    $insert_comment = $conn->query("INSERT INTO df_favourites (userid, recipeid) VALUES ('$userid', '$recipe_id')");
-    echo "<a id='success-font'>Recipe Favourited</a>";
-}
-
-?>
-
-<link rel="stylesheet" type="text/css" href="css/style.css">

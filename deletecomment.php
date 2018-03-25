@@ -15,7 +15,7 @@ include 'include/db.php';
 <?php
 
 // Gets id of chosen recipe
-$id = (int)$_POST['comment_id'];
+$id = (int) $_POST['comment_id'];
 
 // Queries to delete recipe from df_recipes and relevent ties
 $sql = $conn->prepare("DELETE FROM df_comments WHERE id = :id");

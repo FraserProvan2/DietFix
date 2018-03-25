@@ -12,5 +12,3 @@ unset($_SESSION['gatekeeper']);
 
 // Sends user back to homepage
 header('location: index.php');
-
-?>

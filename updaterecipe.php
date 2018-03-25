@@ -2,20 +2,25 @@
 include 'include/db.php';
 require 'include/check-user.php';
 
-// Users ID to locate recipe data
-$id      = $_GET["id"];
-$results = $conn->query("SELECT * from df_recipes WHERE id = '$id'");
-$row     = $results->fetch();
-
-// recipe ID to gather the steps
-$countsteps = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY id ASC");
-                           
-?>
-
-<!--
+/*
 Fraser Provan 18/03/2018
 updaterecipe.php - update form for recipes
--->
+ */
+
+$id = $_GET["id"];
+
+// Users ID to locate recipe data
+$recipeinfo = $conn->prepare("SELECT * from df_recipes WHERE id = ?");
+$recipeinfo->bindParam(1, $id);
+$recipeinfo->execute();
+$row = $recipeinfo->fetch();
+
+// recipe ID to gather the steps
+$countsteps = $conn->prepare("SELECT * from df_steps2 WHERE recipeid = ? ORDER BY id ASC");
+$countsteps->bindParam(1, $id);
+$countsteps->execute();
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -107,7 +112,7 @@ updaterecipe.php - update form for recipes
                         <!-- Update Cooking Instructions-->
                         <h4 class="section-title">Cooking Instructions</h4>
 
-                        <?php while ($steps = $countsteps->fetch()) { ?>
+                        <?php while ($steps = $countsteps->fetch()) {?>
 
                         <div class="form-group">
                             <label style="padding-left:10px;" name="stepid" id="stepid">Step
@@ -116,9 +121,9 @@ updaterecipe.php - update form for recipes
                             <textarea class="form-control" rows="2" name="step<?php echo $steps[stepid]; ?>"><?php echo $steps[instruction]; ?></textarea>
                         </div>
 
-                        <?php } ?>
+                        <?php }?>
 
-                        <button type="submit" class="btn" id="btn btn-outline-success">Update Recipe</button>
+                        <button type="submit" class="btn  btn-outline-success" id="btn">Update Recipe</button>
                     </form>
                     </div>
                 </div>

@@ -5,13 +5,18 @@ include 'include/db.php';
 // Fraser Provan 01/03/2018
 // recipepage.php - Opens recipes from database (bootstrap remake)
 
-// recipe ID to locate recipe data
 $id = $_GET["id"];
-$results = $conn->query("SELECT * from df_recipes WHERE id = '$id'");
-$row = $results->fetch();
+
+// recipe ID to locate recipe data
+$recipeinfo = $conn->prepare("SELECT * from df_recipes WHERE id = ?");
+$recipeinfo->bindParam(1, $id);
+$recipeinfo->execute();
+$row = $recipeinfo->fetch();  
 
 // recipe ID to gather the steps
-$results = $conn->query("SELECT * from df_steps2 WHERE recipeid = '$id' ORDER BY id ASC");
+$getsteps = $conn->prepare("SELECT * from df_steps2 WHERE recipeid = ? ORDER BY id ASC");
+$getsteps->bindParam(1, $id);
+$getsteps->execute();
 
 ?>
     <html lang="en">
@@ -149,7 +154,7 @@ if (!isset($_SESSION["gatekeeper"])) {
                                         <h4>Cooking Instructions</h4>
 
                                         <?php 
-                                        while ($steps = $results->fetch()) {
+                                        while ($steps = $getsteps->fetch()) {
                                         echo "<a class='step'>$steps[stepid]. </a>";
                                         echo "$steps[instruction]";
                                         echo "<br><br>";

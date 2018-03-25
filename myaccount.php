@@ -52,13 +52,19 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                     <h4 class="section-title">My Recipes</h4>
 
                     <?php
-                        //Selects all from recipes when username is the same (for error "you have no uploaded meals")
+
                         $username = $_SESSION['gatekeeper']['username'];
-                        $check = $conn->query("SELECT * from df_recipes WHERE '$username' = username"); 
+
+                        //Selects all from recipes when username is the same (for error "you have no uploaded meals")
+                        $check = $conn->prepare("SELECT * from df_recipes WHERE ? = username"); 
+                        $check->bindParam(1, $username);
+                        $check->execute();
                         $check_fetched = $check->fetch();
                         
                         //Selects all from recipes when username is the same (for list of meals)
-                        $results = $conn->query("SELECT * from df_recipes WHERE '$username' = username");
+                        $results = $conn->prepare("SELECT * from df_recipes WHERE ? = username"); 
+                        $results->bindParam(1, $username);
+                        $results->execute();
 
                         //Checks if they have any uploaded meals yet
                         if ($check_fetched != true) {
@@ -108,13 +114,17 @@ MyAccount.php - Users Manage uploaded and favourited recipes (bootstrap remake)
                             //Gets user ID
                             $userid = $_SESSION['gatekeeper']['id'];
 
-                            //Left Join to select data from df_recipes and df_favourites (For list of favourites)
-                            $favourites = $conn->query("SELECT f.*, r.id,r.username, r.title FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.userid = $userid"); 
-
                             //Left Join to select data from df_recipes and df_favourites (For error "you dont have any favourites")
-                            $fav_check = $conn->query("SELECT f.*, r.id,r.username, r.title FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.userid = $userid");
+                            $fav_check = $conn->prepare("SELECT f.*, r.id,r.username, r.title FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.userid = ?");
+                            $fav_check->bindParam(1, $userid);
+                            $fav_check->execute();
                             $fav_checkfetched = $fav_check->fetch();    
 
+                            //Left Join to select data from df_recipes and df_favourites (For list of favourites)
+                            $favourites = $conn->prepare("SELECT f.*, r.id,r.username, r.title FROM df_favourites f JOIN df_recipes r ON r.id = f.recipeid WHERE f.userid = ?"); 
+                            $favourites->bindParam(1, $userid);
+                            $favourites->execute();
+                            
                             //Checks if they have any uploaded recipes yet
                             if ($fav_checkfetched != true) {
                                 echo "You have no favourites yet!";

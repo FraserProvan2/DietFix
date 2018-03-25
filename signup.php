@@ -20,12 +20,16 @@ $password2 = htmlentities($_GET["password2"]);
 $email     = htmlentities($_GET["email"]);
 
 // Used later to check if user already exists
-$results       = $conn->query("SELECT * FROM df_users WHERE username = '$username'");
-$rows_username = $results->fetch();
+$check_username = $conn->prepare("SELECT * FROM df_users WHERE username = ?");
+$check_username->bindParam(1, $username);
+$check_username->execute();
+$rows_username = $check_username->fetch();
 
 // Used later to check if email is in use
-$results    = $conn->query("SELECT * FROM df_users WHERE email = '$email'");
-$rows_email = $results->fetch();
+$check_email = $conn->prepare("SELECT * FROM df_users WHERE email = ?");
+$check_email->bindParam(1, $email);
+$check_email->execute();
+$rows_email = $check_email->fetch();
 
 // Checks theres a Username
 if ($username == false) {
@@ -48,21 +52,22 @@ else if ($password == false) {
 }
 
 // Checks if Passwords match
-else if ($_GET["password"] != $_GET["password2"]) {
+else if ($_GET["password"] != $_GET["password2"]) 
+{
     echo ("Passwords do not match!");
 }
 
 // Checks theres a Email
-else if ($email == false) {
+else if ($email == false) 
+{
     echo "Please enter Email";
-}
-
-else {
-
+} 
+else 
+{
     // Hashes password
     $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
 
-    // Query to insert new email into df_users (Using a prepared statement)
+    // Query to insert new email into df_users
     $statement = $conn->prepare("INSERT INTO df_users (username, password, email) VALUES (?, ?, ?)");
     $statement->bindParam(1, $username);
     $statement->bindParam(2, $hashed_pass);

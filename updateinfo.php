@@ -93,7 +93,7 @@ else if ($calories == false) {
     $error = 1;
 } else {
 
-    // Updates recipe information (Using prepared statement)
+    // Updates recipe information
     $updateinfo = $conn->prepare("UPDATE df_recipes SET username = ?, userid = ?, title = ?, description = ?, ingredients = ?, cookingtime = ?, calories = ? WHERE id = '$id'");
     $updateinfo->bindParam(1, $username);
     $updateinfo->bindParam(2, $userid);
@@ -104,7 +104,7 @@ else if ($calories == false) {
     $updateinfo->bindParam(7, $calories);
     $updateinfo->execute();
 
-    // Updates each step instruction (Using prepared statements)
+    // Updates each step instruction
     if ($step1 != "") {
         $update_step1 = $conn->prepare("UPDATE df_steps2 SET instruction = ? WHERE recipeid = '$id' AND stepid = '1' ");
         $update_step1->bindParam(1, $step1);

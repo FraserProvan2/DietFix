@@ -17,11 +17,11 @@ session_start();
 // Connects to Database
 $conn = new PDO("mysql:host=localhost;dbname=medotusc_dietfix;", "medotusc_fraser", "NHD4?oWU5Bpo");
 
-// Gets users login info (in prepared statement)
-$username  = htmlentities($_GET["user"]);
-$password  = htmlentities($_GET["pass"]);
+// Gets users login info
+$username = htmlentities($_GET["user"]);
+$password = htmlentities($_GET["pass"]);
 
-// Rehash 
+// Rehash
 $hashedPwdInDb = password_hash($password, PASSWORD_DEFAULT);
 
 // Query to check username
@@ -47,8 +47,8 @@ else if ($password == false) {
     echo "</div>";
 }
 // If username is valid assign to session + open homepage
-    // Check if password matches hashed PW (algorithm to see if it corresponds to the given hash)
-    else if (password_verify($password, $row['password'])) {
+// Check if password matches hashed PW (algorithm to see if it corresponds to the given hash)
+else if (password_verify($password, $row['password'])) {
     $session_array          = array('id' => $row['id'], 'username' => $row['username']);
     $_SESSION['gatekeeper'] = $session_array;
     header('location: index.php');

@@ -11,15 +11,15 @@ include 'include/db.php';
 <?php
 
 // Gets user input
-$userid = $_SESSION['gatekeeper']['id'];
-$currentpassword  = htmlentities($_POST["currentpassword"]);
-$newpassword  = htmlentities($_POST["newpassword_1"]);
-$newpassword2 = htmlentities($_POST["newpassword_2"]);
+$userid          = $_SESSION['gatekeeper']['id'];
+$currentpassword = htmlentities($_POST["currentpassword"]);
+$newpassword     = htmlentities($_POST["newpassword_1"]);
+$newpassword2    = htmlentities($_POST["newpassword_2"]);
 
-// Selects users data (Using prepared statements)
+// Selects users data
 $users = $conn->prepare("SELECT * FROM df_users WHERE id = ?");
-$users>bindParam(1, $userid);
-$users>execute();
+$users->bindParam(1, $userid);
+$users->execute();
 $checked_users = $users->fetch();
 
 // Checks if the users input matches hashed password
@@ -38,7 +38,7 @@ if ($checked == false) {
 }
 
 // Checks if new password or new password confirmation is empty
-else if ($newpassword == false OR $newpassword2 == false){
+else if ($newpassword == false or $newpassword2 == false) {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Please enter new password and confirm";
     echo "<br><br>";
@@ -57,7 +57,7 @@ else if ($newpassword !== $newpassword2) {
 
 // Updates users password information
 else {
-    // Updates recipe information (Using prepared statement)
+    // Updates recipe information
     $change_pass = $conn->prepare("UPDATE df_users SET password = ? WHERE id = ?");
     $change_pass->bindParam(1, $newhashed_pass);
     $change_pass->bindParam(2, $userid);

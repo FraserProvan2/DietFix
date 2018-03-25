@@ -162,7 +162,7 @@ else if ($calories == false) {
         $lastrow  = $results->fetch();
         $recipeid = $lastrow["id"];
 
-        // Inserts steps into df_steps2 (Using prepared statements)
+        // Inserts steps into df_steps2
         if ($step1 != "") {
             $value1        = "1";
             $prepare_step1 = $conn->prepare("INSERT INTO df_steps2 (recipeid, stepid, instruction) VALUES (?, ?, ?)");
