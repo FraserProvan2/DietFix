@@ -1,2 +1,2 @@
 # DietFix - Recipe Sharing Website
-www.fraserprovan.co.uk
+Demo: http://fraserprovan.co.uk/projects/dietfix/
