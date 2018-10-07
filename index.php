@@ -204,7 +204,8 @@ else {
 
             </div>
 
-            <!-- Most Favourited Recipes -->
+            <?php /*
+            <!-- Trending Recipes -->
             <div class="row">
                 <div class="col">
                     <?php
@@ -245,6 +246,7 @@ else {
 
                 </div>
             </div>
+            */ ?>
 
             <!-- Random Selection Of Recipes -->
             <div class="row">
