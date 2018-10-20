@@ -15,7 +15,7 @@ session_start();
 // signin.php - Signs user in
 
 // Connects to Database
-$conn = new PDO("mysql:host=localhost;dbname=medotusc_dietfix;", "medotusc_fraser", "NHD4?oWU5Bpo");
+$conn = new PDO();
 
 // Gets users login info
 $username = htmlentities($_GET["user"]);
