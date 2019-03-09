@@ -1,2 +1,4 @@
 # DietFix - Recipe Sharing Website
-Demo: http://fraserprovan.co.uk/projects/dietfix/
+Recipe Sharing Website made for my final university project.
+
+Read more: http://fraserprovan.co.uk/#dietfix
